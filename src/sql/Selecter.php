@@ -1,4 +1,5 @@
 <?php
+
 namespace WebDevKev\QueryBuilder\sql;
 
 class Selecter
@@ -48,9 +49,14 @@ class Selecter
      */
     public function select(string ...$columns): self
     {
-        foreach ($columns as $column) {
-            $this->columns[] = "`${column}`";
+        if($columns === "*"){
+            $this->columns[] = $columns;
+        } else {
+            foreach ($columns as $column) {
+                $this->columns[] = "`${column}`";
+            }
         }
+
         return $this;
     }
 
@@ -61,6 +67,10 @@ class Selecter
      */
     public function from(string $table, ?string $as = null): self
     {
+        if (strpos($table, '.')) {
+            $tableExploded = explode('.', $table);
+            $table = '`' . $tableExploded[0] . '`.`' . $tableExploded[0] . '`';
+        }
         $this->from[] = !isset($as) ? "`${table}`" : "`${table}` AS `${as}`";
         return $this;
     }
