@@ -1,5 +1,5 @@
 <?php
-namespace QueryBuilder\QueryBuilder\sql;
+namespace WebDevKev\QueryBuilder\sql;
 
 class Updater
 {

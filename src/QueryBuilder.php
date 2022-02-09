@@ -2,16 +2,16 @@
 
 namespace WebDevKev\QueryBuilder;
 
-use QueryBuilder\QueryBuilder\sql\Deleter;
-use QueryBuilder\QueryBuilder\sql\Inserter;
-//use QueryBuilder\QueryBuilder\sql\Selecter;
-use QueryBuilder\QueryBuilder\sql\Updater;
+use WebDevKev\QueryBuilder\sql\Deleter;
+use WebDevKev\QueryBuilder\sql\Inserter;
+use WebDevKev\QueryBuilder\sql\Selecter;
+use WebDevKev\QueryBuilder\sql\Updater;
 
 class QueryBuilder
 {
     public function select(string ...$columns)
     {
-        return (new WebDevKev\QueryBuilder\sql\Selecter)->select(...$columns);
+        return (new Selecter)->select(...$columns);
     }
 
     public function insert(string $into)
