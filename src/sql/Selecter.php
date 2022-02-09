@@ -67,11 +67,7 @@ class Selecter
      */
     public function from(string $table, ?string $as = null): self
     {
-        if (strpos($table, '.')) {
-            $tableExploded = explode('.', $table);
-            $table = '`' . $tableExploded[0] . '`.`' . $tableExploded[1] . '`';
-        }
-        $this->from[] = !isset($as) ? "`${table}`" : "`${table}` AS `${as}`";
+        $this->from[] = !isset($as) ? "${table}" : "${table} AS ${as}";
         return $this;
     }
 
