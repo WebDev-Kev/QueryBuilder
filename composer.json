@@ -1,0 +1,15 @@
+{
+  "name": "WebDevKev/QueryBuilder",
+  "description": "",
+  "authors": [
+    {
+      "name": "Kevin Bjelkendal",
+      "email": "kevin.bjelkendal@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "WebDevKev\\QueryBuilder\\": "src/"
+    }
+  }
+}
