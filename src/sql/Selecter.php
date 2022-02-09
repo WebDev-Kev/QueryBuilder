@@ -49,10 +49,10 @@ class Selecter
      */
     public function select(string ...$columns): self
     {
-        if($columns === "*"){
-            $this->columns[] = $columns;
-        } else {
-            foreach ($columns as $column) {
+        foreach ($columns as $column) {
+            if ($column === "*") {
+                $this->columns[] = $column;
+            } else {
                 $this->columns[] = "`${column}`";
             }
         }
@@ -69,7 +69,7 @@ class Selecter
     {
         if (strpos($table, '.')) {
             $tableExploded = explode('.', $table);
-            $table = '`' . $tableExploded[0] . '`.`' . $tableExploded[0] . '`';
+            $table = '`' . $tableExploded[0] . '`.`' . $tableExploded[1] . '`';
         }
         $this->from[] = !isset($as) ? "`${table}`" : "`${table}` AS `${as}`";
         return $this;
