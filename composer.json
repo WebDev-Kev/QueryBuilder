@@ -1,6 +1,6 @@
 {
   "name": "webdevkev/querybuilder",
-  "description": "",
+  "description": "A simple SQL QueryBuilder for PHP 7.0+",
   "authors": [
     {
       "name": "Kevin Bjelkendal",
@@ -8,7 +8,7 @@
     }
   ],
   "require": {
-    "php": ">=7.2.0"
+    "php": ">=7.0.0"
   },
   "autoload": {
     "psr-4": {
