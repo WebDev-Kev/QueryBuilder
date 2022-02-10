@@ -3,6 +3,9 @@ A simplistic SQL QueryBuilder for PHP.
 
 
 ## Install
+```
+composer require webdevkev/querybuilder
+```
 
 ## Examples
 
