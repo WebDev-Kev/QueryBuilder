@@ -9,7 +9,7 @@ use WebDevKev\QueryBuilder\sql\Updater;
 
 class QueryBuilder
 {
-    public function select(string ...$columns)
+    public function select(...$columns)
     {
         return (new Selecter)->select(...$columns);
     }

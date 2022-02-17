@@ -27,6 +27,11 @@ class Selecter
     private $order = null;
 
     /**
+     * @var array
+     */
+    private $join = [];
+
+    /**
      * @return string
      */
     public function __toString(): string
@@ -34,6 +39,7 @@ class Selecter
         $where = $this->conditions === [] ? '' : ' WHERE ' . implode(' AND ', $this->conditions);
         $order = $this->order === null ? '' : ' ORDER BY ' . $this->order;
         $limit = $this->limit === null ? '' : ' LIMIT ' . $this->limit;
+        //$joins = $this->convertJoins();
 
         return 'SELECT ' . implode(', ', $this->columns)
             . ' FROM ' . implode(', ', $this->from)
@@ -43,12 +49,17 @@ class Selecter
             . ';';
     }
 
+    public function convertJoins(): string
+    {
+    }
+
     /**
      * @param string ...$columns
      * @return Selecter
      */
-    public function select(string ...$columns): self
+    public function select(...$columns): self
     {
+        if(is_array($columns[0])) $columns = $columns[0];
         foreach ($columns as $column) {
             if ($column === "*") {
                 $this->columns[] = $column;
@@ -104,6 +115,27 @@ class Selecter
         $this->limit = $limit;
         return $this;
     }
+
+    public function innerJoin(string $table, string ...$columns): self
+    {
+    }
+
+    public function leftJoin()
+    {
+    }
+
+    public function rightJoin()
+    {
+    }
+
+    public function fullJoin()
+    {
+    }
+
+    public function selfJoin()
+    {
+    }
+
 
     #TODO: Implement joins
 }
