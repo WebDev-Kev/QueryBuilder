@@ -51,5 +51,5 @@ UPDATE database_table SET column2=test, column1=33 WHERE id=3;
         ->where('id=22');
 
 Return:
-DELETE FROM database_table WHERE  WHERE id=22;
+DELETE FROM database_table WHERE id=22;
 ```
