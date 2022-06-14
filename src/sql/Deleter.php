@@ -21,7 +21,6 @@ class Deleter
 
         return 'DELETE FROM '
             . $this->table
-            . ' WHERE '
             . $where
             . ';';
     }
