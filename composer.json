@@ -1,6 +1,8 @@
 {
   "name": "webdevkev/querybuilder",
   "description": "A simple SQL QueryBuilder for PHP 7.1+",
+  "homepage": "https://github.com/WebDev-Kev",
+  "license": "MIT",
   "authors": [
     {
       "name": "Kevin Bjelkendal",
