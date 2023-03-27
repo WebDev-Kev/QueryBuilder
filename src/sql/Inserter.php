@@ -1,6 +1,8 @@
 <?php
 namespace WebDevKev\QueryBuilder\sql;
 
+use Exception;
+
 class Inserter extends Query
 {
     /**
