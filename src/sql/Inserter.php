@@ -56,10 +56,17 @@ class Inserter extends Query
     public function values(...$values): self
     {
         foreach ($values as $value) {
-            if (is_string($value)) {
-                $this->values[] = "'${value}'";
-            } else {
-                $this->values[] = $value;
+            switch (true) {
+                case is_string($value) && (strpos($value, ':') === 0 || $value === '?'):
+                case is_numeric($value):
+                    $this->values[] = $value;
+                    break;
+                case is_string($value):
+                    $this->values[] = "'" . $value . "'";
+                    break;
+                default:
+                    // Throw an exception or handle the error as appropriate
+                    throw new Exception('Invalid value type: ' . gettype($value));
             }
         }
         return $this;
