@@ -2,9 +2,8 @@
 
 namespace WebDevKev\QueryBuilder\sql;
 
-class Selecter
+class Selecter extends Query
 {
-
     /**
      * @var array
      */
@@ -13,10 +12,6 @@ class Selecter
      * @var array
      */
     private $columns = [];
-    /**
-     * @var array
-     */
-    private $conditions = [];
     /**
      * @var null
      */
@@ -79,18 +74,6 @@ class Selecter
     public function from(string $table, ?string $as = null): self
     {
         $this->from[] = !isset($as) ? "${table}" : "${table} AS ${as}";
-        return $this;
-    }
-
-    /**
-     * @param string ...$where
-     * @return Selecter
-     */
-    public function where(string ...$where): self
-    {
-        foreach ($where as $item) {
-            $this->conditions[] = $item;
-        }
         return $this;
     }
 

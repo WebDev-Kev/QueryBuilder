@@ -1,12 +1,8 @@
 <?php
 namespace WebDevKev\QueryBuilder\sql;
 
-class Inserter
+class Inserter extends Query
 {
-    /**
-     * @var string
-     */
-    private $table = '';
     /**
      * @var array
      */
