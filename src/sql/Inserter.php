@@ -55,7 +55,13 @@ class Inserter extends Query
      */
     public function values(...$values): self
     {
-        $this->values = $values;
+        foreach ($values as $value) {
+            if (is_string($value)) {
+                $this->values[] = "'${value}'";
+            } else {
+                $this->values[] = $value;
+            }
+        }
         return $this;
     }
 }
