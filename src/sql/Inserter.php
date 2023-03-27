@@ -56,7 +56,7 @@ class Inserter extends Query
     public function values(...$values): self
     {
         foreach ($values as $value) {
-            if (is_string($value)) {
+            if (is_string($value) && strpos($value, ':') !== 0 && !is_numeric($value)) {
                 $this->values[] = "'${value}'";
             } else {
                 $this->values[] = $value;
