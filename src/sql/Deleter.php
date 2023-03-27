@@ -1,23 +1,14 @@
 <?php
 namespace WebDevKev\QueryBuilder\sql;
 
-class Deleter
+class Deleter extends Query
 {
-    /**
-     * @var
-     */
-    private $table;
-    /**
-     * @var array
-     */
-    private $condition = [];
-
     /**
      * @return string
      */
     public function __toString(): string
     {
-        $where = $this->condition === [] ? '' : ' WHERE ' . implode(' AND ', $this->condition);
+        $where = $this->conditions === [] ? '' : ' WHERE ' . implode(' AND ', $this->conditions);
 
         return 'DELETE FROM '
             . $this->table
@@ -35,15 +26,4 @@ class Deleter
         return $this;
     }
 
-    /**
-     * @param string ...$where
-     * @return Deleter
-     */
-    public function where(string ...$where): self
-    {
-        foreach ($where as $item) {
-            $this->condition[] = $item;
-        }
-        return $this;
-    }
 }

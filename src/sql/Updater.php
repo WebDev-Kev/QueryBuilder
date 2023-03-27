@@ -1,22 +1,12 @@
 <?php
 namespace WebDevKev\QueryBuilder\sql;
 
-class Updater
+class Updater extends Query
 {
-
-    /**
-     * @var
-     */
-    private $table;
     /**
      * @var array
      */
     private $values = [];
-    /**
-     * @var array
-     */
-    private $conditions = [];
-
 
     /**
      * @return string
@@ -52,17 +42,4 @@ class Updater
         }
         return $this;
     }
-
-    /**
-     * @param string ...$condition
-     * @return Updater
-     */
-    public function where(string ...$condition): self
-    {
-        foreach ($condition as $condition_single) {
-            $this->conditions[] = $condition_single;
-        }
-        return $this;
-    }
-
 }
